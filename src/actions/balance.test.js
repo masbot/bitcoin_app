@@ -1,0 +1,23 @@
+import * as constants from './constants';
+import * as actions from './balance';
+
+describe('balance actions', () => {
+
+    it('creates an action to set the balance', () => {
+        const balance = 20;        
+        const expectedAction = { type: constants.SET_BALANCE , balance };
+        expect(actions.setBalance(balance)).toEqual(expectedAction);
+    });
+    
+    it('creates an action to withdraw from balance', () => {
+        const withdraw = 10;
+        const expectedAction = { type: constants.WITHDRAW, withdraw };
+        expect(actions.withdrawBalance(withdraw)).toEqual(expectedAction);
+    });
+
+    it('creates an action to deposit into the balance', () => {
+        const deposit = 10;
+        const expectedAction = { type: constants.DEPOSIT, deposit };
+        expect(actions.depositBalance(deposit)).toEqual(expectedAction);
+    });
+});
